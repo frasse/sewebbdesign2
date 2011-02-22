@@ -10,8 +10,7 @@ gem 'formtastic'
 gem 'haml'
 gem 'jquery-rails'
 gem 'devise'
-gem 'will_paginate', '3.0.pre'
-gem 'gravatar'
+gem "will_paginate", :git => "http://github.com/mislav/will_paginate.git", :branch => "rails3"
 # Use unicorn as the web server
 # gem 'unicorn'
 

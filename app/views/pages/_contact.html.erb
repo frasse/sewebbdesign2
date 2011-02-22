@@ -22,7 +22,7 @@
       <%  @users.each do |user| %>
         <tr>
           <td class="users">
-            <%= gravatar_for user, :size => 70 %>
+            <%= gravatar user, :size => 70 %>
           </td>
           <td class="users">
             <%= h user.name %> |
