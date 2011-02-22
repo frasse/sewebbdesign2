@@ -40,6 +40,7 @@ GEM
       actionpack (>= 2.3.7)
       activesupport (>= 2.3.7)
       i18n (~> 0.4)
+    gravatar (1.0)
     haml (3.0.25)
     i18n (0.5.0)
     jquery-rails (0.2.7)
@@ -78,6 +79,7 @@ GEM
     tzinfo (0.3.24)
     warden (1.0.3)
       rack (>= 1.0.0)
+    will_paginate (3.0.pre)
 
 PLATFORMS
   ruby
@@ -85,7 +87,9 @@ PLATFORMS
 DEPENDENCIES
   devise
   formtastic
+  gravatar
   haml
   jquery-rails
   rails (= 3.0.4)
   sqlite3
+  will_paginate (= 3.0.pre)

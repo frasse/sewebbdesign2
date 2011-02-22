@@ -2,6 +2,15 @@ Sewebbdesign2::Application.routes.draw do
   devise_for :users
 
   resources :users
+  resources :notices
+
+  match "pages" => "pages#index"
+  match "pages/product" => "pages#product"
+  match "pages/showcase" => "pages#showcase"
+  match "pages/contact" => "pages#contact"
+  match "pages/contact_mail" => "pages#contact_mail"
+  match "pages/site_request_mail" => "pages#site_request_mail"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

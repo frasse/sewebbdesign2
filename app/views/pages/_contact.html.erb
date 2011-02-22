@@ -1,0 +1,58 @@
+<table>
+  <tr>
+  <td id="news">
+    <% form_for :email, :url => { :controller => 'pages', :action => 'contact_mail'}, :html => {:id => "contactform"} do |f| %>
+
+      <h3>Har du en fråga?</h3>
+      <div id="contacttxt">Fyll i formuläret så kontaktar vi er!</div>
+      <%= f.label :name, "Namn/Företag", :class => "contactlabel" %>
+      <%= f.text_field :name, :class => "contactinput" %>
+      <%= f.label :email_address, "E-post", :class => "contactlabel" %>
+      <%= f.text_field :email_address, :class => "contactinput" %>
+      <%= f.label :phone, "Telefon", :class => "contactlabel" %>
+      <%= f.text_field :phone, :class => "contactinput" %>
+      <%= f.label :message, "Meddelande", :class => "contactlabel" %>
+      <%= f.text_area :message, :class => "contactinput", :size => "0x0" %>
+      <%= f.submit "Skicka", :class => "submitbtn" %>
+    <% end %>
+  </td>
+  <td id="paragraph">
+    <h2>Kontakt</h2>
+    <table class="users">
+      <%  @users.each do |user| %>
+        <tr>
+          <td class="users">
+            <%= gravatar_for user, :size => 70 %>
+          </td>
+          <td class="users">
+            <%= h user.name %> |
+            <%= h user.title %>
+            <br />
+            <%= h user.phone %> |
+            <%= h user.email %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+    <br />
+    <br />
+    <br />
+    <p>
+      Adress:
+    </p>
+    <p>
+      Trädgårdsgatan 6<br />
+      821 42<br />
+      Bollnäs
+    </p>
+    <p>
+
+      Försäljnings Ansvarig Daniel Svensson
+    </p>
+    <p>
+      Tel 076-393 25 24
+    </p>
+  </td>
+</tr>
+</table>
+<%= render 'analytics/ajax' %>

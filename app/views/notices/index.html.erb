@@ -1,0 +1,24 @@
+<h2>Nyheter</h2>
+<%= link_to 'Ny Nyhet', new_notice_path if current_user %>
+<br />
+<div class="notices">
+  <% i=0 %>
+  <% @notices.each do |notice| %>
+    <div>
+      <p>
+        <b><%= link_to notice.title, notice_url(notice) %></b><br />
+        <%=h notice.text %><br />
+        Av: 
+		<%#= link_to notice.user.name, user_url(notice.user) %>
+		<%= notice.user.name %>
+		
+		<br />
+		<% if current_user %>
+        <%= link_to 'Visa', notice %> |
+        <%= link_to 'Ändra', edit_notice_path(notice) %> |
+        <%= link_to 'Radera', notice, :confirm => 'Är du säker?', :method => :delete %>
+		<% end %>
+    </p>
+  </div>
+<% end %>
+</div>

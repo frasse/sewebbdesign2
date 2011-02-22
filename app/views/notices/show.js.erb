@@ -1,0 +1,18 @@
+<p>
+  <b>Titel:</b>
+  <%=h @notice.title %>
+</p>
+
+<p>
+  <b>Text:</b>
+  <%=h @notice.text %>
+</p>
+
+<p>
+  <b>Av:</b>
+  <%=h @notice.user.name %>
+</p>
+
+
+<%= link_to 'Ändra', edit_notice_path(@notice) %> |
+<%= link_to 'Nyheter', notices_path %>

@@ -1,0 +1,40 @@
+<table>
+  <tr>
+    <td id="news">
+
+      <% form_for :email, :url => { :controller => 'pages', :action => 'site_request_mail'}, :html => {:id => "contactform"} do |f| %>
+
+        <h3>Har du en fråga?</h3>
+        <div id="contacttxt">Vill ni ha en hemsida?</div>
+        <%= f.label :name, "Namn/Företag", :class => "contactlabel" %>
+        <%= f.text_field :name, :class => "contactinput" %>
+        <%= f.label :email_address, "E-post", :class => "contactlabel" %>
+        <%= f.text_field :email_address, :class => "contactinput" %>
+        <%= f.label :phone, "Telefon", :class => "contactlabel" %>
+        <%= f.text_field :phone, :class => "contactinput" %>
+        <%= f.submit "Skicka", :class => "submitbtn" %>
+      <% end %>
+	  <%= render :partial => 'notices/index_sidebar', :locals => {:notices => Notice.paginate(:page => params[:page], :order => "created_at DESC")} %>
+    </td>
+    <td id="paragraph">
+      <span id='slideshow'>
+        <img src='/images/slides/1.jpg' alt='img1' class="active" />
+        <img src='/images/slides/2.jpg' alt='img2' />
+        <img src='/images/slides/1.jpg' alt='img3' />
+      </span>
+      <h2>Vi hjälper dig att synas!</h2>
+      <p>Vi kan tillsammans med semedia erbjuda dig en helhetslösning, med exponering både på webben och i traditionell media.</p>
+      <p>Vi som jobbar här gör vad vi älskar och älskar det vi gör. Vi tar alltid det extra steget för att du och vi skall känna oss nöjda.</p>
+      <h2>Vi tar hand om tekniken</h2>
+      <p>Servrar och domäner, det ska du inte behöva tänka på, det fixar vi. Berätta bara vad du är intresserad av så gör vi en prototyp utifrån det. Sedan stämmer vi av och vi gör hemsidan.</p>
+      <p> Sedan är vi av åsikten att en hemsida inte ska behöva kosta mycket bara för att den är unik. Vi använder oss inte av några grafiska mallar eller liknande, utan din sida skall vara just det, din sida.</p>
+      <p>Vad du än är intresserad av så kan vi hjälpa dig, vare sig det är en enklare sida med några få bilder eller om det är en stor webbapplication du är intresserad av. Vi har kunskapen att utföra ett exceptionellt arbete med snäva tidsramar.</p>
+      <h2>Det är inte svårt!</h2>
+      <p>
+        Vi vill att det ska vara lätt att vara kund hos oss. Vi kan därför ta det kompletta ansvaret för er lösning, från idé och utveckling till drift och underhåll.</p>
+      <p>Vi ser till varje kunds specifika önskemål och möjligheter. Med hjälp av erfarenhet och realistiska idéer omvandlar vi dem till praktiska och branschanpassade lösningar.
+      </p>
+	  <%#= render 'analytics/ajax' %>
+    </td>
+  </tr>
+</table>
