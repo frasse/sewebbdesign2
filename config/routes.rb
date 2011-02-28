@@ -3,6 +3,7 @@ Sewebbdesign2::Application.routes.draw do
 
   resources :users
   resources :notices
+  resources :works
 
   match "pages" => "pages#index"
   match "pages/product" => "pages#product"

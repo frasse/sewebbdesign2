@@ -1,0 +1,18 @@
+<% form_for(@todo) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label "Titel:" %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label "Att göra:" %><br />
+    <%= f.text_area :description, :size => "24x6" %>
+  </p>
+  <p>
+    <%= f.label "Klar:" %><%= f.check_box :finished %>
+  </p>
+  <%= hidden_field_tag "work_id", params[:id] %>
+  <p>
+    <%= f.submit 'Skapa' %>
+  </p>
+<% end %>
