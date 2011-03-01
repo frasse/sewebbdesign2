@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
+  before_filter :authenticate_user!, :except => [:index, :show]
   def index
     @users = User.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # index.html.haml
       format.xml  { render :xml => @users }
     end
   end

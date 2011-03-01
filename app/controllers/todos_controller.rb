@@ -1,5 +1,5 @@
 class TodosController < ApplicationController
-before_filter :require_user
+before_filter :authenticate_user!
   # GET /todos
   # GET /todos.xml
   def index
@@ -42,7 +42,6 @@ before_filter :require_user
   # POST /todos.xml
   def create
     @todo = Todo.new(params[:todo])
-	@todo.work = Work.find(params[:work_id])
     respond_to do |format|
       if @todo.save
         format.html { redirect_to(@todo.work, :notice => 'Todo was successfully created.') }

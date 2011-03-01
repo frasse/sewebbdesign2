@@ -1,0 +1,43 @@
+%p
+	%b Titel:
+	=h @work.title
+%p
+	%b Typ:
+	=h @work.wtype
+%p
+	%b Beskrivning:
+	=h @work.description
+%p
+	%b Utkast:
+	= check_box_tag 'finished', @work.draft, @work.draft, :disabled => true
+
+%p
+	%b Färdig:
+	= check_box_tag 'finished', @work.finished, @work.finished, :disabled => true
+
+
+%p
+	%b Betald:
+	= check_box_tag 'finished', @work.paid, @work.paid, :disabled => true
+
+
+%p
+	%b Url:
+	=h @work.url
+
+%p
+	= link_to 'Ny att göra', "/todos/new/#{@work.id}"
+Att göra:
+%table#todos
+	= render @work.todos
+%br
+%p
+	Ny att göra:
+
+= render :partial => "todos/form", :object => @todo = Todo.new
+
+= link_to 'Ändra', edit_work_path(@work)
+|
+= link_to 'Tabort', @work, :confirm => 'Är du säker?', :method => :delete
+|
+= link_to 'Jobb', works_path
