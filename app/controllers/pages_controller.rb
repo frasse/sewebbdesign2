@@ -61,25 +61,16 @@ class PagesController < ApplicationController
       flash[:notice] = "Du måste fylla i ett telefonnummer"
       validated = false
     end
-
-    if validated
-      if Emailer::deliver_contact(params[:email])
+	if validated
+      if ContactMailer.contact_mail(email).deliver
         flash[:notice] = "Meddelandet är skickat"
       else
         flash[:error] = "Något gick fel"
       end
-    end
-    contact
-#    respond_to do |format|
-      #format.html # {redirect_to root_path}
-#      format.html render :action => "contact" 
-#      format.js {render :action => "contact", :layout => false} 
-#    end
-#    respond_to do |format|
-#      format.html {redirect_to root_path}
-#      format.js {render :layout => false} 
-#    end
+	end
+	contact
   end
+
   def site_request_mail
     validated = true
     email = params[:email]
@@ -99,18 +90,13 @@ class PagesController < ApplicationController
       flash[:notice] = "Du måste fylla i ett telefonnummer"
       validated = false
     end
-
-    if validated
-      if Emailer::deliver_contact(params[:email])
+	if validated
+      if ContactMailer.site_request_mail(email).deliver
         flash[:notice] = "Meddelandet är skickat"
       else
         flash[:error] = "Något gick fel"
       end
     end
-    index    
-#    respond_to do |format|
-#      format.html # new.html.erb
-#      format.js {render :layout => false} 
-#    end
+    index
   end
 end
