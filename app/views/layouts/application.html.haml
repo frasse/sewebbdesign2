@@ -6,6 +6,13 @@
 		%meta{:name => 'description', :content => 'Skaffa en professionell hemsida till ditt företag!'}
 		%title title
 		= stylesheet_link_tag 'stylish'
+		= stylesheet_link_tag 'smoothness/jquery-ui-1.8.10.custom'
+		= stylesheet_link_tag 'datatable_jui'
+		= stylesheet_link_tag 'formtastic'
+		= stylesheet_link_tag 'formtastic_changes'
+
+
+
 		/[if IE 6]
 			= stylesheet_link_tag 'ie'
 		= javascript_include_tag :all, :cache => true
@@ -22,7 +29,7 @@
 										Kontrollpanel
 										%ul#usernav
 											%li= link_to "Jobb", works_url, :class => "navlink"
-											%li= link_to "CRM", works_url, :class => "navlink"
+											%li= link_to "CRM", contacts_url, :class => "navlink"
 											%li= link_to "Nyheter", notices_url , :class => "navlink"
 											%li= link_to "Medarbetare", users_url
 											%li= link_to "Profil", user_url(current_user)

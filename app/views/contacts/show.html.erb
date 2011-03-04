@@ -1,0 +1,43 @@
+<p>
+  <b>Firstname:</b>
+  <%= @contact.firstname %>
+</p>
+
+<p>
+  <b>Lastname:</b>
+  <%= @contact.lastname %>
+</p>
+
+<p>
+  <b>Street:</b>
+  <%= @contact.street %>
+</p>
+
+<p>
+  <b>Zip:</b>
+  <%= @contact.zip %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @contact.city %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @contact.phone %>
+</p>
+
+<p>
+  <b>Mobile:</b>
+  <%= @contact.mobile %>
+</p>
+
+<p>
+  <b>Text:</b>
+  <%= @contact.text %>
+</p>
+
+
+<%= link_to 'Edit', edit_contact_path(@contact) %> |
+<%= link_to 'Back', contacts_path %>

@@ -1,4 +1,6 @@
 Sewebbdesign2::Application.routes.draw do
+  resources :contacts
+
   devise_for :users
 
   resources :users
