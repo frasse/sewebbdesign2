@@ -1,5 +1,8 @@
 %p#notice= notice
 %p
+  %b Image:
+  = gravatar @user,200
+%p
   %b Login:
   = @user.login
 %p
@@ -17,7 +20,7 @@
 %p
   %b Phone:
   = @user.phone
-
-= link_to 'Edit', edit_user_path(@user)
-|
+-if user_signed_in?
+  = link_to 'Edit', edit_user_path(@user)
+  |
 = link_to 'Back', users_path

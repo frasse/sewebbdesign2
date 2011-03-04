@@ -1,0 +1,7 @@
+%h2 Nyheter
+-notices.each do |notice|
+	#notice
+		%p
+			%b= link_to notice.title, notice_url(notice),:class => "navlink"
+			= h truncate notice.text, :length => 100
+= will_paginate notices,:page_links => false, :previous_label => "« Nyare", :next_label => "Äldre »"

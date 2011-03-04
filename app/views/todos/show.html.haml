@@ -1,0 +1,16 @@
+%p
+  %b Title:
+  =h @todo.title
+%p
+  %b Description:
+  =h @todo.description
+%p
+  %b Finished:
+  = check_box_tag 'finished', @todo.finished, @todo.finished, :disabled => true
+
+
+= link_to 'Ändra', edit_todo_path(@todo)
+|
+= link_to 'Jobb', work_path(@todo.work)
+|
+= link_to 'Tabort', @todo, :confirm => 'Är du säker?', :method => :delete

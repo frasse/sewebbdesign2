@@ -3,6 +3,9 @@ Sewebbdesign2::Application.routes.draw do
 
   resources :users
   resources :notices
+  resources :works
+  resources :todos
+  match 'todos/new/:id' => 'todos#new'
 
   match "pages" => "pages#index"
   match "pages/product" => "pages#product"

@@ -1,0 +1,31 @@
+%h2 Jobb
+= link_to 'Nytt jobb', new_work_path
+
+%table
+	%tr
+		%th Namn
+		%th Typ
+		%th Att göra
+		%th Utkast
+		%th Klar
+		%th Betalad
+		%th Url
+		%th Skapad av
+
+	-@works.each do |work|
+		-todos = 0
+		-work.todos.each do |t|
+			-todos += 1 unless t.finished
+
+		%tr
+			%td= link_to work.title, work
+			%td= h work.wtype
+			%td= h todos
+			%td= check_box_tag 'draft', work.draft, work.draft, :disabled => true
+			%td= check_box_tag 'finished', work.finished, work.finished, :disabled => true
+			%td= check_box_tag 'paid', work.paid, work.paid, :disabled => true
+			%td= link_to "Länk", work.url
+			%td= link_to work.user.name, user_url(work.user)
+
+%br
+

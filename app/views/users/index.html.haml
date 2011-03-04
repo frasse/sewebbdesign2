@@ -3,6 +3,7 @@
 
 %table
 	%tr
+		%th Image
 		%th Login
 		%th	Name
 		%th	Title
@@ -12,16 +13,19 @@
 		%th
 		%th
 		%th
--	@users.each do |user|
-	%tr
-		%td= user.login
-		%td= user.name
-		%td= user.title
-		%td= user.description
-		%td= user.email
-		%td= user.phone
-		%td= link_to 'Show', user
-		%td= link_to 'Edit', edit_user_path(user)
-		%td= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete
+	-@users.each do |user|
+		%tr
+			%td= gravatar user, 70
+			%td= user.login
+			%td= user.name
+			%td= user.title
+			%td= user.description
+			%td= user.email
+			%td= user.phone
+			%td= link_to 'Show', user
+			-if user_signed_in?
+				%td= link_to 'Edit', edit_user_path(user)
+				%td= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete
 %br
-= link_to 'New User', new_user_path
+-if user_signed_in?
+	= link_to 'New User', new_user_path

@@ -1,0 +1,19 @@
+%h1 Listing todos
+%table
+	%tr
+		%th Jobb
+		%th Title
+		%th Description
+		%th Finished
+	-@todos.each do |todo|
+		%tr
+			%td=h todo.work.title
+			%td=h todo.title
+			%td=h todo.description
+			%td= check_box_tag 'finished', todo.finished, todo.finished, :disabled => true
+			%td= link_to 'Show', todo
+			%td= link_to 'Edit', edit_todo_path(todo)
+			%td= link_to 'Destroy', todo, :confirm => 'Are you sure?', :method => :delete
+%br
+
+= link_to 'New todo', new_todo_path
