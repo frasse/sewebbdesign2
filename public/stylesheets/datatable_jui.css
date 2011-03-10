@@ -109,9 +109,9 @@ table.display thead th div.DataTables_sort_wrapper span {
 
 .dataTables_wrapper {
 	position: relative;
-	min-height: 302px;
+/*	min-height: 302px;
 	_height: 302px;
-	clear: both;
+*/	clear: both;
 }
 
 .dataTables_processing {
@@ -182,6 +182,9 @@ table.display {
 	width: 100%;
 	clear: both;
 	border-collapse: collapse;
+}
+table.display tbody {
+	vertical-align:top;
 }
 
 table.display tfoot th {

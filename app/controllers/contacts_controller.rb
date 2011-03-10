@@ -1,4 +1,5 @@
 class ContactsController < ApplicationController
+	before_filter :authenticate_user!
 	# GET /contacts
 	# GET /contacts.xml
 	def index
@@ -64,6 +65,7 @@ class ContactsController < ApplicationController
 			if @contact.update_attributes(params[:contact])
 				format.html { redirect_to(@contact, :notice => 'Contact was successfully updated.') }
 				format.xml { head :ok }
+				format.js { head :ok }
 			else
 				format.html { render :action => "edit" }
 				format.xml { render :xml => @contact.errors, :status => :unprocessable_entity }
