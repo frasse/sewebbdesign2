@@ -76,7 +76,7 @@
 			}
 		});
 
-		$( ".dialoglink" )
+		$( ".dialog-link" )
 			.click(function(e) {
 				$( "#dialog-form" ).dialog( "open" );
 				e.preventDefault();
@@ -93,7 +93,8 @@
 			},
 			"sPaginationType": "full_numbers",
 		});
-		$('td.editable', oTable.fnGetNodes()).editable( function(value, settings) {
+		$('td.editable', oTable.fnGetNodes()).editable(
+			function(value, settings) {
 				//myName = $(this).attr('name');
 				data={}
 				data[$(this).attr('name')]=value;
@@ -148,7 +149,7 @@
 				%td.editable.trunk{:name =>'contact[text]', :rel => contact.id}= contact.text
 				%td
 					= link_to 'S', contact
-					= link_to 'E', edit_contact_path(contact), :class => 'dialoglink'
+					= link_to 'E', edit_contact_path(contact), :class => 'dialog-link'
 					= link_to 'D', contact, :confirm => 'Are you sure?', :method => :delete
 
 
