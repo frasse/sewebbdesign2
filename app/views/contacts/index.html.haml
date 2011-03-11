@@ -155,9 +155,11 @@
 
 %br
 
-= link_to 'Ny kontakt', new_contact_path
+= link_to 'Ny kontakt', '#', 'onclick' => 'openDialog($("#dialog-form"),"/contacts/new/","Ny kontakt")'
+-#= link_to 'Ny kontakt', new_contact_path, 'onclick' => 'openDialog($("#dialog-form"),"/contacts/new/","Ny kontakt")', :remote => true
 %div(style="display:none")
-	%div#dialog-form(title="Create new user")
+	%div#dialog-form(style='width:600px;')
+	%div#dialog-form1(title="Create new user")
 		%p.validateTips All form fields are required.
 		%form
 			%fieldset

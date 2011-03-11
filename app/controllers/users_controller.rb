@@ -24,6 +24,7 @@ class UsersController < ApplicationController
 
   # GET /users/new
   # GET /users/new.xml
+=begin
   def new
     @user = User.new
 
@@ -32,6 +33,7 @@ class UsersController < ApplicationController
       format.xml  { render :xml => @user }
     end
   end
+=end
 
   # GET /users/1/edit
   def edit

@@ -4,12 +4,14 @@
 		%meta{'http-equiv' => 'Content-Type', :content => 'text/html', :charset => 'utf-8'}
 		%meta{'name' => 'keywords', :content => 'hemsida, hemsidor, hemsida till företag, köpa hemsida, webbdesign, webbyrå, sökmotoroptimering,  professionell hemsida, domän, uppdateringsverktyg, webdesign, webhotell'}
 		%meta{:name => 'description', :content => 'Skaffa en professionell hemsida till ditt företag!'}
-		%title title
+		= csrf_meta_tag
+		%title Sewebbdesign
 		= stylesheet_link_tag 'smoothness/jquery-ui-1.8.10.custom'
 		= stylesheet_link_tag 'datatable_jui'
-		= stylesheet_link_tag 'formtastic'
-		= stylesheet_link_tag 'formtastic_changes'
+		-#= stylesheet_link_tag 'formtastic'
+		-#= stylesheet_link_tag 'formtastic_changes'
 		= stylesheet_link_tag 'stylish'
+		= stylesheet_link_tag 'dialogs'
 		= stylesheet_link_tag 'sass'
 
 
@@ -17,6 +19,7 @@
 		/[if IE 6]
 			= stylesheet_link_tag 'ie'
 		= javascript_include_tag :all, :cache => true
+
 	%body
 		%table#tstt
 			%tr#tstt

@@ -32,6 +32,7 @@ class ContactsController < ApplicationController
 		respond_to do |format|
 			format.html # new.html.erb
 			format.xml { render :xml => @contact }
+			format.js { render :partial => 'form' }
 		end
 	end
 
@@ -49,9 +50,11 @@ class ContactsController < ApplicationController
 			if @contact.save
 				format.html { redirect_to(@contact, :notice => 'Contact was successfully created.') }
 				format.xml { render :xml => @contact, :status => :created, :location => @contact }
+				format.js { head :ok }
 			else
 				format.html { render :action => "new" }
 				format.xml { render :xml => @contact.errors, :status => :unprocessable_entity }
+				format.js { head :bad_request}
 			end
 		end
 	end
