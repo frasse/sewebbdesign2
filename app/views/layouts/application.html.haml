@@ -53,6 +53,8 @@
 									%div#subcontent
 										-if flash
 											%p= flash[:notice]
+											%p= flash[:error]
+											%p= flash[:alert]
 										= yield
 						%tr
 							%td.sidemargin &nbsp;

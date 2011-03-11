@@ -1,5 +1,4 @@
 class ContactsController < ApplicationController
-	before_filter :authenticate_user!
 	# GET /contacts
 	# GET /contacts.xml
 	def index
@@ -22,6 +21,11 @@ class ContactsController < ApplicationController
 			format.xml { render :xml => @contact }
 			format.js { render :layout => false }
 		end
+	end
+
+	def get_attr
+		@contact = Contact.find(params[:id])
+		render :text => @contact.send(params[:attr])
 	end
 
 	# GET /contacts/new

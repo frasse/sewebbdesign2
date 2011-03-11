@@ -1,7 +1,9 @@
 Sewebbdesign2::Application.routes.draw do
   resources :contacts
 
-  devise_for :users
+  match "contacts/get_attr/:id/:attr" => "contacts#get_attr"
+
+  devise_for :users, :controllers => {:registrations => "registrations"}
 
   resources :users
   resources :notices
@@ -66,7 +68,7 @@ Sewebbdesign2::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "users#index"
+  root :to => "pages#index"
 
   # See how all your routes lay out with "rake routes"
 

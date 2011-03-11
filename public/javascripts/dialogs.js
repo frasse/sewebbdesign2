@@ -8,7 +8,12 @@ function openDialog(elem,url,title){
 			"Ok":function(){
 				if($('form.formtastic').valid()){
 					$.post($('form.formtastic').attr('action'),$('form.formtastic').serialize())
-					.success(function(){elem.dialog('close');window.location.reload();})
+					.success(function(){
+						elem.dialog('close');
+						$.get('/contacts/', function(data){
+							$('#subcontent').html(data);
+						});
+					})
 					.error(function(){alert('error');})
 				}
 			},
