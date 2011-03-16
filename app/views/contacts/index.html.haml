@@ -26,14 +26,13 @@
 				var aPos = oTable.fnGetPosition( this );
 				oTable.fnUpdate( sValue, aPos[0], aPos[1] );
 			},
-			loadurl:'/contacts/get_attr/1/firstname/',
-
-			/*"submitdata": function ( value, settings ) {
-				return {
-					"row_id": this.parentNode.getAttribute('id'),
-					"column": oTable.fnGetPosition( this )[2]
-				};
-			},*/
+			//loadurl:'/contacts/get_attr/'+$(this).attr('id')+'/firstname/',
+			data:function(){
+				var html = $.ajax({url: '/contacts/get_attr/'+$(this).attr('rel')+'/'+$(this).attr('myattr')+'/',dataType:"text", async: false}).responseText;
+				//var html = "test";
+				return html;
+			},
+			type :"text",
 			"height": "14px"
 		} );
 		$(".trunk").svTruncate({maxTextLen: 25});
